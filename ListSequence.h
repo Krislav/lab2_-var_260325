@@ -62,6 +62,11 @@ public:
         list->InsertAt(item, index);
         return this;
     }
+
+    virtual Sequence<T>* Delete(int index) override {
+        list->Delete(index);
+        return this;
+    }
     
     virtual Sequence<T>* Concat(const Sequence<T>* list) const override {
         ListSequence<T>* res = new ListSequence<T>(*this);
@@ -77,5 +82,30 @@ public:
 
     const T& operator[](int index) const {
         return (*list)[index];
+    }
+
+    bool operator==(const Sequence<T>& other) const override {
+        if (this == &other) return true;
+        if (GetLength() != other.GetLength()) return false;
+    
+        for (int i = 0; i < GetLength(); ++i) {
+            if (Get(i) != other.Get(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool operator!=(const Sequence<T>& other) const override {
+        return !(*this == other);
+    }
+
+    virtual void Print(std::ostream& os) const override {
+        os << "[";
+        for (int i = 0; i < list->GetLength(); ++i) {
+            os << list->Get(i);
+            if (i != list->GetLength() - 1) os << ", ";
+        }
+        os << "]";
     }
 };

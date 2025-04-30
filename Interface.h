@@ -1,0 +1,20 @@
+#pragma once
+#include "Errors.h"
+#include "Tests.h"
+#include <vector>
+
+void Menu();
+int Home_Page();
+void CreateNewSeq();
+void DeleteExistingSeq();
+void DeleteAllSeq();
+void DeleteElemFromSeq();
+void PrintSeq();
+void PrintQntOfSeq();
+void GetFromSeq();
+void GetLengthSeq();
+void GetSubSeqFromSeq();
+void AppendToSeq();
+void PrependToSeq();
+void InsertAtSeq();
+void ConcatTwoSeq();

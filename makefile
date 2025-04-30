@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -Wall -Wextra -g
 
-SRCS = main.cpp Tests.cpp
-HEADERS = ArraySequence.h ListSequence.h LinkedList.h DynamicArray.h Errors.h ImmutableArraySequence.h ImmutableListSequence.h Sequence.h Tests.h
+SRCS = main.cpp Tests.cpp Interface.cpp
+HEADERS = ArraySequence.h ListSequence.h LinkedList.h DynamicArray.h Errors.h ImmutableArraySequence.h ImmutableListSequence.h Sequence.h Tests.h Interface.h
 OBJS = $(SRCS:.cpp=.o)
 
 TARGET = result

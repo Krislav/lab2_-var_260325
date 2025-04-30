@@ -8,18 +8,27 @@ template <class T>
 class ArraySequence : public Sequence<T> {
 private:
     DynamicArray<T>* items;
-
+    int size;
 public:
     ArraySequence(const T* items, int count) {
-        this->items = new DynamicArray<T>(items, count);
+        this->items = new DynamicArray<T>((count > 0) ? (2 * count) : 0);
+        size = count;
+        for (int i = 0; i < size; i++) {
+            this->items->Set(i, items[i]);
+        }
     }
 
     ArraySequence() {
+        size = 0;
         items = new DynamicArray<T>(0);
     }
 
     ArraySequence (const ArraySequence<T>& other) {
-        items = new DynamicArray<T>(*other.items);
+        items = new DynamicArray<T>(other.items->GetSize());
+        size = other.size;
+        for (int i = 0; i < size; i++) {
+            items->Set(i, other[i]);
+        }
     }
 
     virtual ~ArraySequence() {
@@ -31,19 +40,20 @@ public:
     }
 
     virtual T GetLast() const override {
-        return items->Get(items->GetSize() - 1);
+        return items->Get(size - 1);
     }
 
     virtual T Get(int index) const override {
+        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
         return items->Get(index);
     }
 
     virtual int GetLength() const override {
-        return items->GetSize();
+        return size;
     }
 
     virtual Sequence<T>* GetSubsequence(int startIndex, int endIndex) const override {
-        if (startIndex < 0 || endIndex >= items->GetSize() || startIndex > endIndex) throw(ErrorCode::INDEX_OUT_OF_RANGE);
+        if (startIndex < 0 || endIndex >= size || startIndex > endIndex) throw(ErrorCode::INDEX_OUT_OF_RANGE);
     
         int count = endIndex - startIndex + 1;
         T* sub_items = new T[count];
@@ -57,14 +67,16 @@ public:
     }
 
     virtual Sequence<T>* Append(const T& item) override {
-        items->Resize(items->GetSize() + 1);
-        items->Set(items->GetSize() - 1, item);
+        if (items->GetSize() == size) items->Resize((items->GetSize() > 0) ? (2 * items->GetSize()) : 1);
+        items->Set(size, item);
+        size++;
         return this;
     }
 
     virtual Sequence<T>* Prepend(const T& item) override {
-        items->Resize(items->GetSize() + 1);
-        for (int i = items->GetSize() - 1; i > 0; i--) {
+        if (items->GetSize() == size) items->Resize((items->GetSize() > 0) ? (2 * items->GetSize()) : 1);
+        size++;
+        for (int i = size - 1; i > 0; i--) {
             items->Set(i, items->Get(i - 1));
         }
         items->Set(0, item);
@@ -72,12 +84,20 @@ public:
     }
 
     virtual Sequence<T>* InsertAt(const T& item, int index) override {
-        if (index < 0 || index > items->GetSize()) throw(ErrorCode::INDEX_OUT_OF_RANGE);
-        items->Resize(items->GetSize() + 1);
-        for (int i = items->GetSize() - 1; i > index; i--) {
+        if (index < 0 || index > size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
+        if (items->GetSize() == size) items->Resize((items->GetSize() > 0) ? (2 * items->GetSize()) : 1);
+        size++;
+        for (int i = size - 1; i > index; i--) {
             items->Set(i, items->Get(i - 1));
         }
         items->Set(index, item);
+        return this;
+    }
+
+    virtual Sequence<T>* Delete(int index) override {
+        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
+        items->Delete(index);
+        size--;
         return this;
     }
 
@@ -91,10 +111,37 @@ public:
     }
 
     T& operator[](int index) {
+        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
         return (*items)[index];
     }
 
     const T& operator[](int index) const {
+        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
         return (*items)[index];
+    }
+
+    bool operator==(const Sequence<T>& other) const override {
+        if (this == &other) return true;
+        if (GetLength() != other.GetLength()) return false;
+    
+        for (int i = 0; i < GetLength(); ++i) {
+            if (Get(i) != other.Get(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool operator!=(const Sequence<T>& other) const override {
+        return !(*this == other);
+    }
+
+    virtual void Print(std::ostream& os) const override {
+        os << "[";
+        for (int i = 0; i < size; i++) {
+            os << items->Get(i);
+            if (i != size - 1) os << ", ";
+        }
+        os << "]";
     }
 };

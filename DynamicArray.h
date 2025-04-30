@@ -78,6 +78,20 @@ public:
         size = new_size;
     }
 
+    void Delete(int index) {
+        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
+        T* new_data = new T[size - 1];
+        for (int i = 0; i < index; i++) {
+            new_data[i] = data[i];
+        }
+        for (int i = index + 1; i < size; i++){
+            new_data[i - 1] = data[i];
+        }
+        delete[] data;
+        data = new_data;
+        size--;
+    }
+
     T& operator[](int index) {
         if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
         return data[index];
@@ -86,5 +100,21 @@ public:
     const T& operator[](int index) const {
         if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
         return data[index];
+    }
+
+    bool operator==(const DynamicArray<T>& other) const {
+        if (size != other.size) return false;
+        
+        for (int i = 0; i < size; ++i) {
+            if (data[i] != other.data[i]) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    bool operator!=(const DynamicArray<T>& other) const {
+        return !(*this == other);
     }
 };

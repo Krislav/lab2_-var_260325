@@ -13,6 +13,25 @@ private:
     Node* head;
     Node* tail;
     int size;
+
+    T& GetRef(int index) {
+        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
+        Node* current = head;
+        for (int i = 0; i < index; i++) {
+            current = current->next_node;
+        }
+        return current->data;
+    }
+
+    const T& GetRef(int index) const {
+        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
+        Node* current = head;
+        for (int i = 0; i < index; i++) {
+            current = current->next_node;
+        }
+        return current->data;
+    }
+    
 public:
     LinkedList() {
         head = tail = nullptr;
@@ -61,24 +80,7 @@ public:
         for (int i = 0; i < index; i++) {
             current = current->next_node;
         }
-        return current->data;
-    }
-
-    T& GetRef(int index) {
-        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
-        Node* current = head;
-        for (int i = 0; i < index; i++) {
-            current = current->next_node;
-        }
-        return current->data;
-    }
-
-    const T& GetRef(int index) const {
-        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
-        Node* current = head;
-        for (int i = 0; i < index; i++) {
-            current = current->next_node;
-        }
+        if (current == nullptr) std::cout << "error\n";
         return current->data;
     }
 
@@ -139,8 +141,35 @@ public:
             for (int i = 0; i < index-1; i ++) current = current->next_node;
             new_node->next_node = current->next_node;
             current->next_node = new_node;
+            size++;
         }
-        size++;
+    }
+
+    void Delete(int index) {
+        if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
+
+        if (index == 0) {
+            Node* tmp = head;
+            head = head->next_node;
+            delete tmp;
+            size--;
+        }
+        else if (index == size - 1) {
+            Node* current = head;
+            for (int i = 0; i < index-1; i++) current = current->next_node;
+            current->next_node = nullptr;
+            delete tail;
+            tail = current;
+            size--;
+        }
+        else {
+            Node* current = head;
+            for (int i = 0; i < index-1; i++) current = current->next_node;
+            Node* tmp = current->next_node;
+            current->next_node = tmp->next_node;
+            delete tmp;
+            size--;
+        }
     }
 
     LinkedList<T>* Concat(const LinkedList<T> *list) {
@@ -169,5 +198,26 @@ public:
     const T& operator[](int index) const {
         if (index < 0 || index >= size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
         return GetRef(index);
+    }
+
+    bool operator==(const LinkedList<T>& other) const {
+        if (size != other.size) return false;
+        
+        Node* current1 = head;
+        Node* current2 = other.head;
+        
+        while (current1 && current2) {
+            if (current1->data != current2->data) {
+                return false;
+            }
+            current1 = current1->next_node;
+            current2 = current2->next_node;
+        }
+        
+        return true;
+    }
+
+    bool operator!=(const LinkedList<T>& other) const {
+        return !(*this == other);
     }
 };

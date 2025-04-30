@@ -40,6 +40,12 @@ public:
         return new_list;
     }
 
+    virtual Sequence<T>* Delete(int index) override {
+        ImmutableListSequence<T>* new_list = new ImmutableListSequence<T>(*this);
+        new_list->ListSequence<T>::Delete(index);
+        return new_list;
+    }
+
     virtual Sequence<T>* Concat(const Sequence<T>* other) const override {
         ImmutableListSequence<T>* new_list = new ImmutableListSequence<T>(*this);
         for (int i = 0; i < other->GetLength(); i++) {

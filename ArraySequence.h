@@ -9,9 +9,11 @@ class ArraySequence : public Sequence<T> {
 private:
     DynamicArray<T>* items;
     int size;
+    int capacity;
 public:
     ArraySequence(const T* items, int count) {
-        this->items = new DynamicArray<T>((count > 0) ? (2 * count) : 0);
+        capacity = (count > 0) ? (2 * count) : 0;
+        this->items = new DynamicArray<T>(capacity);
         size = count;
         for (int i = 0; i < size; i++) {
             this->items->Set(i, items[i]);
@@ -19,13 +21,15 @@ public:
     }
 
     ArraySequence() {
+        capacity = 0;
         size = 0;
-        items = new DynamicArray<T>(0);
+        items = new DynamicArray<T>(capacity);
     }
 
     ArraySequence (const ArraySequence<T>& other) {
-        items = new DynamicArray<T>(other.items->GetSize());
+        items = new DynamicArray<T>(other.capacity);
         size = other.size;
+        capacity = other.capacity;
         for (int i = 0; i < size; i++) {
             items->Set(i, other[i]);
         }
@@ -67,14 +71,20 @@ public:
     }
 
     virtual Sequence<T>* Append(const T& item) override {
-        if (items->GetSize() == size) items->Resize((items->GetSize() > 0) ? (2 * items->GetSize()) : 1);
+        if (capacity == size) {
+            capacity = capacity > 0 ? (2 * capacity) : 1;
+            items->Resize(capacity);
+        }
         items->Set(size, item);
         size++;
         return this;
     }
 
     virtual Sequence<T>* Prepend(const T& item) override {
-        if (items->GetSize() == size) items->Resize((items->GetSize() > 0) ? (2 * items->GetSize()) : 1);
+        if (capacity == size) {
+            capacity = capacity > 0 ? (2 * capacity) : 1;
+            items->Resize(capacity);
+        }
         size++;
         for (int i = size - 1; i > 0; i--) {
             items->Set(i, items->Get(i - 1));
@@ -85,7 +95,10 @@ public:
 
     virtual Sequence<T>* InsertAt(const T& item, int index) override {
         if (index < 0 || index > size) throw(ErrorCode::INDEX_OUT_OF_RANGE);
-        if (items->GetSize() == size) items->Resize((items->GetSize() > 0) ? (2 * items->GetSize()) : 1);
+        if (capacity == size) {
+            capacity = capacity > 0 ? (2 * capacity) : 1;
+            items->Resize(capacity);
+        }
         size++;
         for (int i = size - 1; i > index; i--) {
             items->Set(i, items->Get(i - 1));

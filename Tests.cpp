@@ -23,13 +23,13 @@ void TestLinkedList() { //GROUP 1
     int test_number = 1;
     int result_of_test = 0;
 
-    result_of_test = 0; //TEST 1.1
+    result_of_test = 0; //TEST 1.1 проверка создание пустого листа
     LinkedList<int> list11;
     if (list11.GetLength() != 0) result_of_test = 1;
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.2
+    result_of_test = 1; //TEST 1.2 проаерка возврата ошибок GetFirst
     try {
         list11.GetFirst();
     }
@@ -40,7 +40,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.3
+    result_of_test = 1; //TEST 1.3 проаерка возврата ошибок GetLast
     try {
         list11.GetLast();
     }
@@ -51,7 +51,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.4
+    result_of_test = 1; //TEST 1.4 проаерка возврата ошибок Get
     try {
         list11.Get(0);
     }
@@ -62,7 +62,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.5
+    result_of_test = 0; //TEST 1.5 проверка создания списка с элементами
     int out_data1[5] = {0, 1, 2, 3, 4};
     int data[5] = {0, 1, 2, 3, 4};
     LinkedList<int> out_list1(out_data1, 5);
@@ -76,7 +76,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.6
+    result_of_test = 1; //TEST 1.6 проаерка возврата ошибок Get
     try {
         list15.Get(-1);
     }
@@ -87,7 +87,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.7
+    result_of_test = 1; //TEST 1.7 проаерка возврата ошибок Get
     try {
         list15.Get(5);
     }
@@ -98,7 +98,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.8
+    result_of_test = 0; //TEST 1.8  проаерка копирования списка
     LinkedList<int> list18(list15);
     try {
         if (list18 != out_list1) result_of_test = 1;
@@ -109,7 +109,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.9
+    result_of_test = 0; //TEST 1.9 Проверка правильного возврата GetFirst
     try {
         if (list15.GetFirst() != 0) result_of_test = 1;
     }
@@ -119,7 +119,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.10
+    result_of_test = 0; //TEST 1.10 Проверка правильного возврата GetLast
     try {
         if (list15.GetLast() != 4) result_of_test = 1;
     }
@@ -129,7 +129,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.11
+    result_of_test = 0; //TEST 1.11  Проверка правильного возврата Get
     try {
         if (list15.Get(2) != 2) result_of_test = 1;
     }
@@ -139,7 +139,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.12
+    result_of_test = 1; //TEST 1.12 Проверка возврата ошибок []
     try {
         list15[-1];
     }
@@ -150,7 +150,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.13
+    result_of_test = 1; //TEST 1.13 Проверка возврата ошибок []
     try {
         list15[5];
     }
@@ -161,7 +161,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.14
+    result_of_test = 0; //TEST 1.14 Проверка GetLength
     try {
         if (list15.GetLength() != 5) result_of_test = 1;
     }
@@ -171,7 +171,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.15
+    result_of_test = 0; //TEST 1.15 Проверка правильности создания подсписка
     int out_data2[3] = {1, 2, 3};
     LinkedList<int> out_list2(out_data2, 3);
     LinkedList<int> sub_list115(*(list15.GetSubList(1, 3)));
@@ -184,7 +184,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.16
+    result_of_test = 0; //TEST 1.16 Проверка правильности создания подсписка
     LinkedList<int> sub_list116(*(list15.GetSubList(0, 4)));
     try {
         if (sub_list116 != out_list1) result_of_test = 1;
@@ -195,7 +195,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.17
+    result_of_test = 0; //TEST 1.17 Проверка правильности создания подсписка
     LinkedList<int> sub_list117(*(list15.GetSubList(2, 2)));
     try {
        if (sub_list117[0] != 2) result_of_test = 1;
@@ -206,7 +206,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.18
+    result_of_test = 1; //TEST 1.18 Проверка воврата ошибок GetSubList
     try {
         LinkedList<int> sub_list118(*(list15.GetSubList(3, 2)));
     }
@@ -217,7 +217,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.19
+    result_of_test = 1; //TEST 1.19 Проверка воврата ошибок GetSubList
     try {
         LinkedList<int> sub_list119(*(list15.GetSubList(-1, 2)));
     }
@@ -228,7 +228,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.20
+    result_of_test = 1; //TEST 1.20 Проверка воврата ошибок GetSubList
     try {
         LinkedList<int> sub_list120(*(list15.GetSubList(1, 5)));
     }
@@ -239,7 +239,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.21
+    result_of_test = 0; //TEST 1.21 Проверка корректности Append
     try {
         list15.Append(5);
         if (list15[5] != 5) result_of_test = 1;
@@ -250,7 +250,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.22
+    result_of_test = 0; //TEST 1.22 Проверка корректности Prepend
     LinkedList<int> list122(list15);
     try {
         list122.Prepend(-1);
@@ -262,7 +262,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.23
+    result_of_test = 0; //TEST 1.23 Проверка корректности InsertAt
     try {
         list122.InsertAt(10, 3);
         if (list122[3] != 10) result_of_test = 1;
@@ -273,7 +273,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.24
+    result_of_test = 1; //TEST 1.24 Проверка возврата ошибок InsertAt
     try {
         list122.InsertAt(10, 9);
     }
@@ -284,7 +284,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.25
+    result_of_test = 1; //TEST 1.25 Проверка возврата ошибок InsertAt
     try {
         list122.InsertAt(10, -1);
     }
@@ -295,7 +295,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.26
+    result_of_test = 0; //TEST 1.26 Проверка корректности InsertAt
     try {
         list122.InsertAt(11, 8);
         if (list122[8] != 11) result_of_test = 1;
@@ -306,7 +306,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.27
+    result_of_test = 0; //TEST 1.27 Проверка корректности InsertAt
     try {
         list122.InsertAt(12, 0);
         if (list122[0] != 12) result_of_test = 1;
@@ -317,7 +317,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.28
+    result_of_test = 0; //TEST 1.28 Проверка Concat
     int data1[5] = {0, 1, 2, 3, 4};
     int data2[3] = {5, 6, 7};
     int out_data3[8] = {0, 1, 2, 3, 4, 5, 6, 7};
@@ -335,7 +335,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.29
+    result_of_test = 0; //TEST 1.29 Проверка Concat
     LinkedList<int> list129_1(data1, 5);
     LinkedList<int> list129_2;
     try {
@@ -349,7 +349,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.30
+    result_of_test = 0; //TEST 1.30 Проверка Concat
     LinkedList<int> list130_1;
     LinkedList<int> list130_2(data1, 5);
     try {
@@ -363,7 +363,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.31
+    result_of_test = 0; //TEST 1.31 Проверка правильности Delete
     int out_data4[4] = {0, 1, 2, 4};
     LinkedList<int> out_list4(out_data4, 4);
     LinkedList<int> list131(data1, 5);
@@ -378,7 +378,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.32
+    result_of_test = 0; //TEST 1.32 Проверка правильности Delete
     int out_data5[4] = {0, 1, 2, 3};
     LinkedList<int> out_list5(out_data5, 4);
     LinkedList<int> list132(data1, 5);
@@ -393,7 +393,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.33
+    result_of_test = 0; //TEST 1.33 Проверка правильности Delete
     int out_data6[4] = {1, 2, 3, 4};
     LinkedList<int> out_list6(out_data6, 4);
     LinkedList<int> list133(data1, 5);
@@ -408,7 +408,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.34
+    result_of_test = 1; //TEST 1.34 Проверка возврата ошибок Delete
     LinkedList<int> list134(data1, 5);
     try {
         list134.Delete(-1);
@@ -420,7 +420,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.35
+    result_of_test = 1; //TEST 1.35 Проверка возврата ошибок Delete
     LinkedList<int> list135(data1, 5);
     try {
         list135.Delete(5);
@@ -432,7 +432,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 1.36
+    result_of_test = 1; //TEST 1.36 Проверка возврата ошибок Delete
     LinkedList<int> list136;
     try {
         list136.Delete(0);
@@ -444,7 +444,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.37
+    result_of_test = 0; //TEST 1.37 Проверка добавления после Delete
     int out_data7[5] = {0, 1, 2, 4, 9};
     LinkedList<int> out_list7(out_data7, 5);
     LinkedList<int> list137(data1, 5);
@@ -460,7 +460,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.38
+    result_of_test = 0; //TEST 1.38 Проверка добавления после Delete
     int out_data8[5] = {0, 1, 2, 3, 9};
     LinkedList<int> out_list8(out_data8, 5);
     LinkedList<int> list138(data1, 5);
@@ -476,7 +476,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.39
+    result_of_test = 0; //TEST 1.39 Проверка добавления после Delete
     int out_data9[5] = {1, 2, 3, 4, 9};
     LinkedList<int> out_list9(out_data9, 5);
     LinkedList<int> list139(data1, 5);
@@ -492,7 +492,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.40
+    result_of_test = 0; //TEST 1.40 Проверка добавления после Delete
     int out_data10[5] = {9, 0, 1, 2, 4};
     LinkedList<int> out_list10(out_data10, 5);
     LinkedList<int> list140(data1, 5);
@@ -508,7 +508,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.41
+    result_of_test = 0; //TEST 1.41 Проверка добавления после Delete
     int out_data11[5] = {9, 0, 1, 2, 3};
     LinkedList<int> out_list11(out_data11, 5);
     LinkedList<int> list141(data1, 5);
@@ -524,7 +524,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.42
+    result_of_test = 0; //TEST 1.42 Проверка добавления после Delete
     int out_data12[5] = {9, 1, 2, 3, 4};
     LinkedList<int> out_list12(out_data12, 5);
     LinkedList<int> list142(data1, 5);
@@ -540,7 +540,7 @@ void TestLinkedList() { //GROUP 1
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 1.43
+    result_of_test = 0; //TEST 1.43 Проверка добавления после Delete
     LinkedList<int> list143(data1, 5);
     try {
         list143.Delete(4);
@@ -560,13 +560,13 @@ void TestDynamicArray() { //GROUP 2
     int test_number = 1;
     int result_of_test = 0;
 
-    result_of_test = 0; //TEST 2.1
+    result_of_test = 0; //TEST 2.1 Проверка создания пустого списка
     DynamicArray<int> list21;
     if (list21.GetSize() != 0) result_of_test = 1;
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.2
+    result_of_test = 1; //TEST 2.2 Проверка возврата ошибок Get
     try {
         list21.Get(0);
     }
@@ -577,7 +577,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.3
+    result_of_test = 1; //TEST 2.3 Проверка возврата ошибок []
     try {
         list21[0];
     }
@@ -588,7 +588,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.4
+    result_of_test = 1; //TEST 2.4 Проверка возврата ошибок Set
     try {
         list21.Set(0, 1);
     }
@@ -599,7 +599,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.5
+    result_of_test = 1; //TEST 2.5 Проверка возврата ошибок Resize
     try {
         list21.Resize(-1);
     }
@@ -610,7 +610,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.6
+    result_of_test = 0; //TEST 2.6 Проверка корректности Resize
     try {
         list21.Resize(3);
         if (list21.GetSize() != 3) result_of_test = 1;
@@ -621,7 +621,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.7
+    result_of_test = 0; //TEST 2.7 Проверка корректности Set
     int out_data1[3] = {0, 1, 2};
     DynamicArray<int> out_list1(out_data1, 3);
     try {
@@ -636,7 +636,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.8
+    result_of_test = 0; //TEST 2.8 Проверка корректности Resize
     int out_data2[2] = {0, 1};
     DynamicArray<int> out_list2(out_data2, 2);
     try {
@@ -650,7 +650,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.9
+    result_of_test = 0; //TEST 2.9 Проверка корректности создания списка фиксированной длины
     DynamicArray<int> list29(5);
     try {
         if (list29.GetSize() != 5) result_of_test = 1;
@@ -661,7 +661,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.10
+    result_of_test = 0; //TEST 2.10 Проверка Set
     int out_data3[5] = {0, 1, 2, 3, 4};
     DynamicArray<int> out_list3(out_data3, 5);
     try {
@@ -676,7 +676,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.11
+    result_of_test = 0; //TEST 2.11 Проверка создания списка по другому списку
     int data[5] = {0, 1, 2, 3, 4};
     DynamicArray<int> list211(data, 5);
     try {
@@ -689,7 +689,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.12
+    result_of_test = 1; //TEST 2.12 Проверка возврата ошибок создания списка некорректной длины
     try {
         DynamicArray<int> list212(data, -1);
     }
@@ -700,7 +700,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.13
+    result_of_test = 1; //TEST 2.13 Проверка возврата ошибок создания списка некорректной длины
     try {
         DynamicArray<int> list213(-1);
     }
@@ -711,7 +711,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.14
+    result_of_test = 0; //TEST 2.14 Проверка копирования списка
     DynamicArray<int> list214(list211);
     try {
         if (list214 != out_list3) result_of_test = 1;
@@ -722,7 +722,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.15
+    result_of_test = 0; //TEST 2.15 Проверка Set
     try {
         list214.Set(3, 6);
         if (list214[3] != 6) result_of_test = 1;
@@ -733,7 +733,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.16
+    result_of_test = 1; //TEST 2.16 Проверка возврата ошибок Set
     try {
         list214.Set(-1, 7);
     }
@@ -744,7 +744,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.17
+    result_of_test = 1; //TEST 2.17 Проверка возврата ошибок Set
     try {
         list214.Set(5, 7);
     }
@@ -755,7 +755,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.18
+    result_of_test = 0; //TEST 2.18 Проверка Get
     try {
         if (list214.Get(1) != 1) result_of_test = 1;
     }
@@ -765,7 +765,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.19
+    result_of_test = 1; //TEST 2.19 Проверка возврата ошибок Get
     try {
         list214.Get(-1);
     }
@@ -776,7 +776,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.20
+    result_of_test = 1; //TEST 2.20 Проверка возврата ошибок Set
     try {
         list214.Get(5);
     }
@@ -787,7 +787,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.21
+    result_of_test = 0; //TEST 2.21 Проверка корректности Delete
     int out_data4[4] = {0, 1, 2, 4};
     DynamicArray<int> out_list4(out_data4, 4);
     DynamicArray<int> list221(data, 5);
@@ -832,7 +832,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 2.24
+    result_of_test = 1; //TEST 2.24 Проверка возврата ошибок Delete
     DynamicArray<int> list224(data, 5);
     try {
         list224.Delete(-1);
@@ -868,7 +868,7 @@ void TestDynamicArray() { //GROUP 2
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 2.27
+    result_of_test = 0; //TEST 2.27 Проверка добавления после Delete
     DynamicArray<int> list227(data, 5);
     try {
         list227.Delete(4);
@@ -888,7 +888,7 @@ void TestListSequence() { //GROUP 3
     int test_number = 1;
     int result_of_test = 0;
 
-    result_of_test = 0; //TEST 3.1
+    result_of_test = 0; //TEST 3.1 Проверка создания пустого списка
     ListSequence<int> list31;
     try {
         if (list31.GetLength() != 0) result_of_test = 1;
@@ -899,7 +899,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.2
+    result_of_test = 0; //TEST 3.2 Проверка создания списка по массиву
     int out_data1[5] = {0, 1, 2, 3, 4};
     int data[5] = {0, 1, 2, 3, 4};
     ListSequence<int> out_list1(out_data1, 5);
@@ -914,7 +914,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.3
+    result_of_test = 0; //TEST 3.3 Проверка копирования списка
     ListSequence<int> list33(list32);
     try {
         if (list33.GetLength() != 5) result_of_test = 1;
@@ -926,7 +926,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 3.4
+    result_of_test = 1; //TEST 3.4 Проверка возврата ошибок []
     try {
         list32[-1];
     }
@@ -948,7 +948,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 3.6
+    result_of_test = 1; //TEST 3.6 Проверка возврата ошибок GetFirst
     try {
         list31.GetFirst();
     }
@@ -959,7 +959,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 3.7
+    result_of_test = 1; //TEST 3.7 Проверка возврата ошибок GetLast
     try {
         list31.GetLast();
     }
@@ -970,7 +970,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.8
+    result_of_test = 0; //TEST 3.8 Проверка GetFirst
     try {
         if (list32.GetFirst() != 0) result_of_test = 1;
     }
@@ -980,7 +980,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.9
+    result_of_test = 0; //TEST 3.9 Проверка GetLast
     try {
         if (list32.GetLast() != 4) result_of_test = 1;
     }
@@ -990,7 +990,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.10
+    result_of_test = 0; //TEST 3.10 Проверка Get
     try {
         if (list32.Get(2) != 2) result_of_test = 1;
     }
@@ -1000,7 +1000,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 3.11
+    result_of_test = 1; //TEST 3.11 Проверка возврата ощибок Get
     try {
         list32.Get(-1);
     }
@@ -1022,7 +1022,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.13
+    result_of_test = 0; //TEST 3.13 Проверка создания под списка
     int out_data2[3] = {1, 2, 3};
     ListSequence<int> out_list2(out_data2, 3);
     try {
@@ -1035,7 +1035,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 3.14
+    result_of_test = 1; //TEST 3.14 Проверка возврата ошибок при создания подсписка
     try {
         ListSequence<int>* sub_list314 = dynamic_cast<ListSequence<int>*>(list32.GetSubsequence(3, 2));
     }
@@ -1068,7 +1068,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.17
+    result_of_test = 0; //TEST 3.17 Проверка Append
     ListSequence<int> list317(list32);
     try {
         list317.Append(5);
@@ -1080,7 +1080,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.18
+    result_of_test = 0; //TEST 3.18 Проверка Prepend
     ListSequence<int> list318(list32);
     try {
         list318.Prepend(-1);
@@ -1092,7 +1092,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.19
+    result_of_test = 0; //TEST 3.19 Проверка InsertAt
     ListSequence<int> list319(list32);
     try {
         list319.InsertAt(10, 3);
@@ -1104,7 +1104,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 3.20
+    result_of_test = 1; //TEST 3.20 Проверка возврата ошибок InsterAt
     ListSequence<int> list320(list32);
     try {
         list320.InsertAt(10, 6);
@@ -1128,7 +1128,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.22
+    result_of_test = 0; //TEST 3.22 Проверка InsertAt
     ListSequence<int> list322(list32);
     try {
         list322.InsertAt(11, 5);
@@ -1152,7 +1152,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.24
+    result_of_test = 0; //TEST 3.24 Проверка Concat
     int data1[5] = {0, 1, 2, 3, 4};
     int data2[3] = {5, 6, 7};
     int out_data3[8] = {0, 1, 2, 3, 4, 5, 6, 7};
@@ -1199,7 +1199,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.27
+    result_of_test = 0; //TEST 3.27 Проверка корректности Delete
     int out_data4[4] = {0, 1, 2, 4};
     ListSequence<int> out_list4(out_data4, 4);
     ListSequence<int> list327(data1, 5);
@@ -1244,7 +1244,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 3.30
+    result_of_test = 1; //TEST 3.30 Проверка возврата ошибок Delete
     ListSequence<int> list330(data1, 5);
     try {
         list330.Delete(-1);
@@ -1280,7 +1280,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.33
+    result_of_test = 0; //TEST 3.33 Проверка добавления после Delete
     int out_data7[5] = {0, 1, 2, 4, 9};
     ListSequence<int> out_list7(out_data7, 5);
     ListSequence<int> list333(data1, 5);
@@ -1390,7 +1390,7 @@ void TestListSequence() { //GROUP 3
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 3.40
+    result_of_test = 0; //TEST 3.40 Проверка вывода
     ListSequence<int> list340(data1, 5);
     try {
         std::cout << "Next line must be: [0, 1, 2, 3, 4], if it isn't test 3.40 failed" << "\n";
@@ -1408,7 +1408,7 @@ void TestArraySequence() { //GROUP 4
     int test_number = 1;
     int result_of_test = 0;
 
-    result_of_test = 0; //TEST 4.1
+    result_of_test = 0; //TEST 4.1 Проверка создания пустого списка
     ArraySequence<int> list41;
     try {
         if (list41.GetLength() != 0) result_of_test = 1;
@@ -1419,7 +1419,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.2
+    result_of_test = 0; //TEST 4.2 Проверка создания списка по массиву
     int out_data1[5] = {0, 1, 2, 3, 4};
     int data[5] = {0, 1, 2, 3, 4};
     ArraySequence<int> out_list1(out_data1, 5);
@@ -1434,7 +1434,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.3
+    result_of_test = 0; //TEST 4.3 Проверка копирования списка
     ArraySequence<int> list43(list42);
     try {
         if (list43.GetLength() != 5) result_of_test = 1;
@@ -1446,7 +1446,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 4.4
+    result_of_test = 1; //TEST 4.4 Проверка возврата ошибок []
     try {
         list42[-1];
     }
@@ -1468,7 +1468,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 4.6
+    result_of_test = 1; //TEST 4.6 Проверка возврата ошибок GetFirst
     try {
         list41.GetFirst();
     }
@@ -1479,7 +1479,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 4.7
+    result_of_test = 1; //TEST 4.7 Проверка возврата ошибок GetLast
     try {
         list41.GetLast();
     }
@@ -1490,7 +1490,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.8
+    result_of_test = 0; //TEST 4.8 Проверка GetFirst
     try {
         if (list42.GetFirst() != 0) result_of_test = 1;
     }
@@ -1500,7 +1500,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.9
+    result_of_test = 0; //TEST 4.9 Проверка GetLast
     try {
         if (list42.GetLast() != 4) result_of_test = 1;
     }
@@ -1510,7 +1510,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.10
+    result_of_test = 0; //TEST 4.10 Проверка Get
     try {
         if (list42.Get(2) != 2) result_of_test = 1;
     }
@@ -1520,7 +1520,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 4.11
+    result_of_test = 1; //TEST 4.11 Проверка возврата ощибок Get
     try {
         list42.Get(-1);
     }
@@ -1542,7 +1542,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.13
+    result_of_test = 0; //TEST 4.13 Проверка создания под списка
     int out_data2[3] = {1, 2, 3};
     ArraySequence<int> out_list2(out_data2, 3);
     try {
@@ -1555,7 +1555,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 4.14
+    result_of_test = 1; //TEST 4.14 Проверка возврата ошибок при создания подсписка
     try {
         ArraySequence<int>* sub_list414 = dynamic_cast<ArraySequence<int>*>(list42.GetSubsequence(3, 2));
     }
@@ -1588,7 +1588,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
     
-    result_of_test = 0; //TEST 4.17
+    result_of_test = 0; //TEST 4.17 Проверка Append
     ArraySequence<int> list417(list42);
     try {
         list417.Append(5);
@@ -1600,7 +1600,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.18
+    result_of_test = 0; //TEST 4.18 Проверка Prepend
     ArraySequence<int> list418(list42);
     try {
         list418.Prepend(-1);
@@ -1612,7 +1612,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.19
+    result_of_test = 0; //TEST 4.19 Проверка InsertAt
     ArraySequence<int> list419(list42);
     try {
         list419.InsertAt(10, 3);
@@ -1624,7 +1624,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 4.20
+    result_of_test = 1; //TEST 4.20 Проверка возврата ошибок InsterAt
     ArraySequence<int> list420(list42);
     try {
         list420.InsertAt(10, 6);
@@ -1648,7 +1648,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.22
+    result_of_test = 0; //TEST 4.22 Проверка InsertAt
     ArraySequence<int> list422(list42);
     try {
         list422.InsertAt(11, 5);
@@ -1672,7 +1672,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.24
+    result_of_test = 0; //TEST 4.24 Проверка Concat
     int data1[5] = {0, 1, 2, 3, 4};
     int data2[3] = {5, 6, 7};
     int out_data3[8] = {0, 1, 2, 3, 4, 5, 6, 7};
@@ -1718,7 +1718,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.27
+    result_of_test = 0; //TEST 4.27 Проверка корректности Delete
     int out_data4[4] = {0, 1, 2, 4};
     ArraySequence<int> out_list4(out_data4, 4);
     ArraySequence<int> list427(data1, 5);
@@ -1763,7 +1763,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 4.30
+    result_of_test = 1; //TEST 4.30 Проверка возврата ошибок Delete
     ArraySequence<int> list430(data1, 5);
     try {
         list430.Delete(-1);
@@ -1799,7 +1799,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.33
+    result_of_test = 0; //TEST 4.33 Проверка добавления после Delete
     int out_data7[5] = {0, 1, 2, 4, 9};
     ArraySequence<int> out_list7(out_data7, 5);
     ArraySequence<int> list433(data1, 5);
@@ -1909,7 +1909,7 @@ void TestArraySequence() { //GROUP 4
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 4.40
+    result_of_test = 0; //TEST 4.40 Проверка вывода
     ArraySequence<int> list440(data1, 5);
     try {
         std::cout << "Next line must be: [0, 1, 2, 3, 4], if it isn't test 4.40 failed" << "\n";
@@ -1927,7 +1927,7 @@ void TestImmutableListSequence() { //GROUP 5
     int test_number = 1;
     int result_of_test = 0;
 
-    result_of_test = 0; //TEST 5.1
+    result_of_test = 0; //TEST 5.1 Проверка создания пустого списка
     ImmutableListSequence<int> list51;
     try {
         if (list51.GetLength() != 0) result_of_test = 1;
@@ -1938,7 +1938,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.2
+    result_of_test = 0; //TEST 5.2 Проверка создания списка по массиву
     int out_data1[5] = {0, 1, 2, 3, 4};
     int data[5] = {0, 1, 2, 3, 4};
     ImmutableListSequence<int> out_list1(out_data1, 5);
@@ -1953,7 +1953,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.3
+    result_of_test = 0; //TEST 5.3 Проверка копирования списка
     ImmutableListSequence<int> list53(list52);
     try {
         if (list53.GetLength() != 5) result_of_test = 1;
@@ -1965,7 +1965,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 5.4
+    result_of_test = 1; //TEST 5.4 Проверка возврата ошибок []
     try {
         list52[-1];
     }
@@ -1987,7 +1987,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 5.6
+    result_of_test = 1; //TEST 5.6 Проверка возврата ошибок GetFirst
     try {
         list51.GetFirst();
     }
@@ -1998,7 +1998,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 5.7
+    result_of_test = 1; //TEST 5.7 Проверка возврата ошибок GetLast
     try {
         list51.GetLast();
     }
@@ -2009,7 +2009,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.8
+    result_of_test = 0; //TEST 5.8 Проверка GetFirst
     try {
         if (list52.GetFirst() != 0) result_of_test = 1;
     }
@@ -2019,7 +2019,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.9
+    result_of_test = 0; //TEST 5.9 Проверка GetLast
     try {
         if (list52.GetLast() != 4) result_of_test = 1;
     }
@@ -2029,7 +2029,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.10
+    result_of_test = 0; //TEST 5.10 Проверка Get
     try {
         if (list52.Get(2) != 2) result_of_test = 1;
     }
@@ -2039,7 +2039,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 5.11
+    result_of_test = 1; //TEST 5.11 Проверка возврата ощибок Get
     try {
         list52.Get(-1);
     }
@@ -2061,7 +2061,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.13
+    result_of_test = 0; //TEST 5.13 Проверка создания под списка
     int out_data2[3] = {1, 2, 3};
     ImmutableListSequence<int> out_list2(out_data2, 3);
     try {
@@ -2075,7 +2075,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 5.14
+    result_of_test = 1; //TEST 5.14 Проверка возврата ошибок при создания подсписка
     try {
         ImmutableListSequence<int>* sub_list514 = dynamic_cast<ImmutableListSequence<int>*>(list52.GetSubsequence(3, 2));
     }
@@ -2108,7 +2108,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.17
+    result_of_test = 0; //TEST 5.17 Проверка Append
     try {
         ImmutableListSequence<int>* list517 = dynamic_cast<ImmutableListSequence<int>*>(list52.Append(5));
         if ((*list517)[5] != 5) result_of_test = 1;
@@ -2119,7 +2119,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.18
+    result_of_test = 0; //TEST 5.18 Проверка Prepend
     try {
         ImmutableListSequence<int>* list518 = dynamic_cast<ImmutableListSequence<int>*>(list52.Prepend(-1));
         if ((*list518)[0] != -1) result_of_test = 1;
@@ -2130,7 +2130,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.19
+    result_of_test = 0; //TEST 5.19 Проверка InsertAt
     try {
         ImmutableListSequence<int>* list519 = dynamic_cast<ImmutableListSequence<int>*>(list52.InsertAt(10, 3));
         if ((*list519)[3] != 10) result_of_test = 1;
@@ -2141,7 +2141,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 5.20
+    result_of_test = 1; //TEST 5.20 Проверка возврата ошибок InsterAt
     try {
         ImmutableListSequence<int>* list520 = dynamic_cast<ImmutableListSequence<int>*>(list52.InsertAt(10, 6));
     }
@@ -2163,7 +2163,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.22
+    result_of_test = 0; //TEST 5.22 Проверка InsertAt
     try {
         ImmutableListSequence<int>* list522 = dynamic_cast<ImmutableListSequence<int>*>(list52.InsertAt(11, 5));
         if ((*list522)[5] != 11) result_of_test = 1;
@@ -2185,7 +2185,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.24
+    result_of_test = 0; //TEST 5.24 Проверка Concat
     int data1[5] = {0, 1, 2, 3, 4};
     int data2[3] = {5, 6, 7};
     int out_data3[8] = {0, 1, 2, 3, 4, 5, 6, 7};
@@ -2232,7 +2232,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.27
+    result_of_test = 0; //TEST 5.27 Проверка корректности Delete
     int out_data4[4] = {0, 1, 2, 4};
     ImmutableListSequence<int> out_list4(out_data4, 4);
     ImmutableListSequence<int> list527(data1, 5);
@@ -2277,7 +2277,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 5.30
+    result_of_test = 1; //TEST 5.30 Проверка возврата ошибок Delete
     ImmutableListSequence<int> list530(data1, 5);
     try {
         list530.Delete(-1);
@@ -2313,7 +2313,7 @@ void TestImmutableListSequence() { //GROUP 5
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 5.33
+    result_of_test = 0; //TEST 5.33 Проверка добавления после Delete
     int out_data7[5] = {0, 1, 2, 4, 9};
     ImmutableListSequence<int> out_list7(out_data7, 5);
     ImmutableListSequence<int> list533(data1, 5);
@@ -2442,7 +2442,7 @@ void TestImmutableArraySequence() { //GROUP 6
     int test_number = 1;
     int result_of_test = 0;
 
-    result_of_test = 0; //TEST 6.1
+    result_of_test = 0; //TEST 6.1 Проверка создания пустого списка
     ImmutableArraySequence<int> list61;
     try {
         if (list61.GetLength() != 0) result_of_test = 1;
@@ -2453,7 +2453,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.2
+    result_of_test = 0; //TEST 6.2 Проверка создания списка по массиву
     int out_data1[5] = {0, 1, 2, 3, 4};
     int data[5] = {0, 1, 2, 3, 4};
     ImmutableArraySequence<int> out_list1(out_data1, 5);
@@ -2468,7 +2468,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.3
+    result_of_test = 0; //TEST 6.3 Проверка копирования списка
     ImmutableArraySequence<int> list63(list62);
     try {
         if (list63.GetLength() != 5) result_of_test = 1;
@@ -2480,7 +2480,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 6.4
+    result_of_test = 1; //TEST 6.4 Проверка возврата ошибок []
     try {
         list62[-1];
     }
@@ -2502,7 +2502,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 6.6
+    result_of_test = 1; //TEST 6.6 Проверка возврата ошибок GetFirst
     try {
         list61.GetFirst();
     }
@@ -2513,7 +2513,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 6.7
+    result_of_test = 1; //TEST 6.7 Проверка возврата ошибок GetLast
     try {
         list61.GetLast();
     }
@@ -2524,7 +2524,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.8
+    result_of_test = 0; //TEST 6.8 Проверка GetFirst
     try {
         if (list62.GetFirst() != 0) result_of_test = 1;
     }
@@ -2534,7 +2534,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.9
+    result_of_test = 0; //TEST 6.9 Проверка GetLast
     try {
         if (list62.GetLast() != 4) result_of_test = 1;
     }
@@ -2544,7 +2544,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.10
+    result_of_test = 0; //TEST 6.10 Проверка Get
     try {
         if (list62.Get(2) != 2) result_of_test = 1;
     }
@@ -2554,7 +2554,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 6.11
+    result_of_test = 1; //TEST 6.11 Проверка возврата ощибок Get
     try {
         list62.Get(-1);
     }
@@ -2576,7 +2576,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.13
+    result_of_test = 0; //TEST 6.13 Проверка создания под списка
     int out_data2[3] = {1, 2, 3};
     ImmutableArraySequence<int> out_list2(out_data2, 3);
     try {
@@ -2589,7 +2589,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 6.14
+    result_of_test = 1; //TEST 6.14 Проверка возврата ошибок при создания подсписка
     try {
         ImmutableArraySequence<int>* sub_list614 = dynamic_cast<ImmutableArraySequence<int>*>(list62.GetSubsequence(3, 2));
     }
@@ -2622,7 +2622,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.17
+    result_of_test = 0; //TEST 6.17 Проверка Append
     try {
         ImmutableArraySequence<int>* list617 = dynamic_cast<ImmutableArraySequence<int>*>(list62.Append(5));
         if ((*list617)[5] != 5) result_of_test = 1;
@@ -2633,7 +2633,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.18
+    result_of_test = 0; //TEST 6.18 Проверка Prepend
     try {
         ImmutableArraySequence<int>* list618 = dynamic_cast<ImmutableArraySequence<int>*>(list62.Prepend(-1));
         if ((*list618)[0] != -1) result_of_test = 1;
@@ -2644,7 +2644,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.19
+    result_of_test = 0; //TEST 6.19 Проверка InsertAt
     try {
         ImmutableArraySequence<int>* list619 = dynamic_cast<ImmutableArraySequence<int>*>(list62.InsertAt(10, 3));
         if ((*list619)[3] != 10) result_of_test = 1;
@@ -2655,7 +2655,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 6.20
+    result_of_test = 1; //TEST 6.20 Проверка возврата ошибок InsterAt
     try {
         ImmutableArraySequence<int>* list620 = dynamic_cast<ImmutableArraySequence<int>*>(list62.InsertAt(10, 6));
     }
@@ -2677,7 +2677,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.22
+    result_of_test = 0; //TEST 6.22 Проверка InsertAt
     try {
         ImmutableArraySequence<int>* list622 = dynamic_cast<ImmutableArraySequence<int>*>(list62.InsertAt(11, 5));
         if ((*list622)[5] != 11) result_of_test = 1;
@@ -2699,7 +2699,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.24
+    result_of_test = 0; //TEST 6.24 Проверка Concat
     int data1[5] = {0, 1, 2, 3, 4};
     int data2[3] = {5, 6, 7};
     int out_data3[8] = {0, 1, 2, 3, 4, 5, 6, 7};
@@ -2745,7 +2745,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.27
+    result_of_test = 0; //TEST 6.27 Проверка корректности Delete
     int out_data4[4] = {0, 1, 2, 4};
     ImmutableArraySequence<int> out_list4(out_data4, 4);
     ImmutableArraySequence<int> list627(data1, 5);
@@ -2790,7 +2790,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 1; //TEST 6.30
+    result_of_test = 1; //TEST 6.30 Проверка возврата ошибок Delete
     ImmutableArraySequence<int> list630(data1, 5);
     try {
         list630.Delete(-1);
@@ -2826,7 +2826,7 @@ void TestImmutableArraySequence() { //GROUP 6
     TestResultPrint(result_of_test, test_group_number, test_number);
     test_number++;
 
-    result_of_test = 0; //TEST 6.33
+    result_of_test = 0; //TEST 6.33 Проверка добавления после Delete
     int out_data7[5] = {0, 1, 2, 4, 9};
     ImmutableArraySequence<int> out_list7(out_data7, 5);
     ImmutableArraySequence<int> list633(data1, 5);

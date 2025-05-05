@@ -1,8 +1,8 @@
 #include "Interface.h"
 
 int main(){
-    // Menu();
-    TestAll();
+    Menu();
+    // TestAll();
 }
 
 //[O] - сделано, [X] - не сделано, [O|X] - частично сделано.

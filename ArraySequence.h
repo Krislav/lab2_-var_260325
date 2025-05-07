@@ -12,6 +12,7 @@ private:
     int capacity;
 public:
     ArraySequence(const T* items, int count) {
+        if (count < 0) throw(ErrorCode::NEGATIVE_QUANTITY);
         capacity = (count > 0) ? (2 * count) : 0;
         this->items = new DynamicArray<T>(capacity);
         size = count;
